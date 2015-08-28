@@ -8,11 +8,14 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController (){
+
+}
 @property (nonatomic,retain)UITableView *table;
 @property(nonatomic,retain)UIButton *floatbutton;
 @property(nonatomic,retain)UIButton *staybutton;
 @property(nonatomic,retain)NSTimer *timer;
+@property(nonatomic,assign)CGFloat l;
 @end
 
 @implementation ViewController
@@ -35,6 +38,7 @@
     _table.backgroundColor=[UIColor whiteColor];
     _table.delegate=self;
     _table.dataSource=self;
+    _table.pagingEnabled=YES;
     [self.view addSubview:_table];
     
 }
@@ -43,18 +47,28 @@
     _staybutton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
     _staybutton.backgroundColor=[UIColor greenColor];
     _staybutton.frame=CGRectMake(ScreenWidth-80, ScreenHeigth-64-80, 60, 60);
+    [_staybutton addTarget:self action:@selector(tiaodi) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_staybutton];
     
     _floatbutton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
     _floatbutton.backgroundColor=[UIColor yellowColor];
     _floatbutton.frame=CGRectMake(ScreenWidth-80, 3*(ScreenHeigth-64)-80, 60, 60);
     _floatbutton.hidden=YES;
-    
+    [_floatbutton addTarget:self action:@selector(tiaodi) forControlEvents:UIControlEventTouchUpInside];
     [self.table addSubview:_floatbutton];
     
     
     
 }
+
+
+-(void)tiaodi{
+    
+    
+    [self.table setContentOffset:CGPointMake(0, self.table.contentSize.height -self.table.bounds.size.height) animated:YES];
+}
+
+
 
 #pragma mark - tableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -85,7 +99,7 @@
     if(indexPath.row%2==1)
         cell.backgroundColor=[UIColor blueColor];
     if(indexPath.row==3)
-        cell.backgroundColor=[UIColor blackColor];
+        cell.backgroundColor=[UIColor grayColor];
 //    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 //    firstXiangQingTableViewCell *qCell = (firstXiangQingTableViewCell*)cell;
 //    qCell.backgroundColor = [UIColor colorWithHexString:@"f9f9f9"];
@@ -121,7 +135,7 @@
         _timer = nil;
     }
     
-    NSLog(@"%f",scrollView.contentOffset.y);
+  //  NSLog(@"%f",scrollView.contentOffset.y);
     if(scrollView.contentOffset.y>2*(ScreenHeigth-64)){
        
         _floatbutton.hidden=NO;
@@ -132,6 +146,16 @@
         _staybutton.hidden=NO;
         
     }
+    
+    
+    if((_l>2*(ScreenHeigth-64))){
+        if(scrollView.contentOffset.y<=2*(ScreenHeigth-64)){
+            [scrollView setContentOffset:CGPointMake(0,2*(ScreenHeigth-64)) animated:NO];
+            
+            scrollView.pagingEnabled=YES;
+        }
+    }
+    
     
     [UIView animateWithDuration:0.5 animations:^{
         _floatbutton.alpha=1;
@@ -176,9 +200,31 @@
     //    }
 }
 
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+   _l =scrollView.contentOffset.y;
+  //  lastContentOffset=0.001;
+    NSLog(@"%.0f",_l);
+}
+
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+    if(_l==2*(ScreenHeigth-64))
+    {
+       if (_l < scrollView.contentOffset.y) {
+        NSLog(@"向上滚动");
+           scrollView.pagingEnabled=NO;
+       }else{
+        NSLog(@"向下滚动");
+           [scrollView setContentOffset:CGPointMake(0,1*(ScreenHeigth-64)) animated:YES];
+           scrollView.pagingEnabled=YES;
+       }
+    }
+}
+
+
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     
-    
+// if(   scrollView.contentOffset.y>=2*(ScreenHeigth-64))
+//     _table.pagingEnabled=NO;
     
     
     _timer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(scrollTimer) userInfo:nil repeats:NO];
