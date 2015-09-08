@@ -13,6 +13,7 @@
 		65FC91541B8DE7A900D24753 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FC91531B8DE7A900D24753 /* ViewController.m */; };
 		65FC91591B8DE7A900D24753 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65FC91581B8DE7A900D24753 /* Images.xcassets */; };
 		65FC91681B8DE7A900D24753 /* FloatButtonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FC91671B8DE7A900D24753 /* FloatButtonTests.m */; };
+		65FC91741B9F18CA00D24753 /* TopTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FC91731B9F18CA00D24753 /* TopTestVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,8 @@
 		65FC91661B8DE7A900D24753 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65FC91671B8DE7A900D24753 /* FloatButtonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FloatButtonTests.m; sourceTree = "<group>"; };
 		65FC91711B8DEBA100D24753 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		65FC91721B9F18CA00D24753 /* TopTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopTestVC.h; sourceTree = "<group>"; };
+		65FC91731B9F18CA00D24753 /* TopTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopTestVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +85,8 @@
 			children = (
 				65FC914C1B8DE7A900D24753 /* AppDelegate.h */,
 				65FC914D1B8DE7A900D24753 /* AppDelegate.m */,
+				65FC91721B9F18CA00D24753 /* TopTestVC.h */,
+				65FC91731B9F18CA00D24753 /* TopTestVC.m */,
 				65FC91521B8DE7A900D24753 /* ViewController.h */,
 				65FC91531B8DE7A900D24753 /* ViewController.m */,
 				65FC91581B8DE7A900D24753 /* Images.xcassets */,
@@ -218,6 +223,7 @@
 			files = (
 				65FC914E1B8DE7A900D24753 /* AppDelegate.m in Sources */,
 				65FC914B1B8DE7A900D24753 /* main.m in Sources */,
+				65FC91741B9F18CA00D24753 /* TopTestVC.m in Sources */,
 				65FC91541B8DE7A900D24753 /* ViewController.m in Sources */,
 				65FC91511B8DE7A900D24753 /* FloatButton.xcdatamodeld in Sources */,
 			);
@@ -393,6 +399,7 @@
 				65FC916D1B8DE7A900D24753 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65FC916E1B8DE7A900D24753 /* Build configuration list for PBXNativeTarget "FloatButtonTests" */ = {
 			isa = XCConfigurationList;
@@ -401,6 +408,7 @@
 				65FC91701B8DE7A900D24753 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "TopTestVC.h"
 @interface AppDelegate ()
 
 @end
@@ -18,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    ViewController *vc=[ViewController new];
+    TopTestVC *vc=[TopTestVC new];
     UINavigationController *navigationController =
     [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = navigationController;
