@@ -26,7 +26,7 @@
     self.title=@"浮动按钮测试";
     self.view.backgroundColor=[UIColor whiteColor];
     self.navigationController.navigationBar.barTintColor=[UIColor whiteColor];
- //   self.navigationController.navigationBar.translucent=NO;
+    self.navigationController.navigationBar.translucent=NO;
  //   [self.navigationController.navigationBar setAlpha:0.5];
     [self initTable];
     [self addbutton];
@@ -60,24 +60,24 @@
     [self.table addSubview:_floatbutton];
     
     
-    UIView *view=[[UIView alloc]initWithFrame:CGRectMake(20, 200, 200, 100)];
-    view.backgroundColor=[UIColor blackColor];
-    [self.view addSubview:view];
+//    UIView *view=[[UIView alloc]initWithFrame:CGRectMake(20, 200, 200, 100)];
+//    view.backgroundColor=[UIColor blackColor];
+//    [self.view addSubview:view];
     
-    UIButton *btn=[UIButton buttonWithType:UIButtonTypeRoundedRect];
-    btn.frame=CGRectMake(0, 0, 100, 100);
-    btn.backgroundColor=[UIColor yellowColor];
-    [btn addTarget:self action:@selector(test:) forControlEvents:UIControlEventTouchUpInside];
-    _testbutton=btn;
-    [view addSubview:btn];
+//    UIButton *btn=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    btn.frame=CGRectMake(0, 0, 100, 100);
+//    btn.backgroundColor=[UIColor yellowColor];
+//    [btn addTarget:self action:@selector(test:) forControlEvents:UIControlEventTouchUpInside];
+//    _testbutton=btn;
+//    [view addSubview:btn];
 }
 
--(void)test:(UIButton *)btn{
-    
-   _testbutton.backgroundColor=[UIColor whiteColor];
-    [_testbutton setTitle:@"操" forState:UIControlStateNormal];
-    
-}
+//-(void)test:(UIButton *)btn{
+//    
+//   _testbutton.backgroundColor=[UIColor whiteColor];
+//    [_testbutton setTitle:@"操" forState:UIControlStateNormal];
+//    
+//}
 
 -(void)tiaodi{
     
